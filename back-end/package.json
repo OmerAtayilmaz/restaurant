@@ -1,0 +1,18 @@
+{
+  "name": "restaurant-app",
+  "version": "1.0.0",
+  "description": "back-end side",
+  "main": "app.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:prod": "node NODE_ENV=production server.js",
+    "debug": "ndb server.js"
+  },
+  "author": "Ömer Atayilmaz",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mongoose": "^6.1.7",
+    "validator": "^13.7.0"
+  }
+}
