@@ -4,15 +4,20 @@
   "description": "back-end side",
   "main": "app.js",
   "scripts": {
-    "start": "node server.js",
-    "start:prod": "node NODE_ENV=production server.js",
+    "start": "nodemon server.js",
+    "start:prod": "nodemon NODE_ENV=production server.js",
     "debug": "ndb server.js"
   },
   "author": "Ömer Atayilmaz",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^14.2.0",
     "express": "^4.17.2",
     "mongoose": "^6.1.7",
+    "morgan": "^1.10.0",
     "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
