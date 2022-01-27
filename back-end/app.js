@@ -9,6 +9,8 @@ const userRouter = require("./routes/userRoutes");
 const app = express();
 
 app.use("/", foodRouter);
+app.use("/user/", userRouter);
+
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
