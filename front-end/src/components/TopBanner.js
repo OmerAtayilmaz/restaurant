@@ -17,7 +17,7 @@ const TopBanner = () => {
       </div>
       <div className="top-banner-right">
         <span className="top-banner-right-shopping-card">
-          <i class="fas fa-shopping-cart fa-lg"></i>
+          <i className="fas fa-shopping-cart fa-lg"></i>
         </span>
       </div>
     </div>
