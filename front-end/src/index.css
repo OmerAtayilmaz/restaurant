@@ -100,12 +100,7 @@
 /*Navbar menu detail*/
 .navbar-menu-detail {
   display: flex;
-  position: absolute;
-  z-index: 999;
   background: white;
-  border: 0.16px solid var(--navbar-active-item-color);
-  padding: 2rem;
-  border-radius: 0.8rem;
 }
 .navbar-menu-detail-header {
   color: var(--navbar-active-item-color);
@@ -127,4 +122,35 @@
 .navbar-menu-logo {
   font-size: 6rem;
   color: var(--navbar-active-item-color);
+}
+
+/*Main*/
+.main-container {
+  background-image: url("https://images.pexels.com/photos/825661/pexels-photo-825661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.main-content {
+  color: white;
+}
+.main-title {
+  padding-top: 55px;
+  font-size: 4rem;
+  font-weight: 200;
+}
+.main-text {
+  font-size: 2rem;
+  font-weight: lighter;
+}
+.main-button {
+  width: 300px;
+  height: 80px;
+  border: none;
+  font-size: 2.4rem;
+  border-radius: 1.4rem;
+  background-color: var(--navbar-active-item-color);
+  color: white;
+  margin-bottom: 55px;
 }
