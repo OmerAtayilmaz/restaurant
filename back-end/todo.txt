@@ -1,1 +1,5 @@
-Completed - DB connection to mongodb ATLAS
+1-Seperate API into logical resourcest
+2-Expose structured resource - based on URLs
+3-use HTTP methods: get,post,put,patch,delete
+4-send data as JSON 
+5-be stateless - as RESTful API -
