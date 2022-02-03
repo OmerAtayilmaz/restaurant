@@ -27,8 +27,8 @@ app.use(function (req, res, next) {
   // Pass to next layer of middleware
   next();
 });
-app.use("/", foodRouter);
-app.use("/user/", userRouter);
+app.use("/api/food", foodRouter);
+app.use("/api/user", userRouter);
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));

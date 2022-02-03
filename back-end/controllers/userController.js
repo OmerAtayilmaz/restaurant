@@ -1,4 +1,6 @@
 const User = require("./../models/userModel");
+const factory = require("./handlerFactory");
+
 exports.getAllUsers = (req, res, next) => {
   res.status(404).json({
     status: "failed",
@@ -6,12 +8,9 @@ exports.getAllUsers = (req, res, next) => {
   });
   next();
 };
-exports.createUser = (req, res, next) => {
-  res.status(404).json({
-    status: "failed",
-    message: "User olusturma tanimlanmadi",
-  });
-};
+
+//factory handler
+exports.createUser = factory.createOne(User);
 
 exports.updateUser = (req, res, next) => {
   res.status(404).json({

@@ -1,7 +1,7 @@
 const Food = require("./../models/foodModel");
 const catchAsync = require("./../utils/catchAsync");
 const AppError = require("./../utils/appError");
-
+const factory = require("./handlerFactory");
 exports.aliasTopFoods = (req, res, next) => {
   res.status(404).json({
     status: "failed",
@@ -40,7 +40,6 @@ exports.getAllFoods = catchAsync(async (req, res, next) => {
     status: "success",
     data: foods,
   });
-  next();
 });
 exports.getFood = catchAsync(async (req, res, next) => {
   const id = req.params.id;
@@ -61,17 +60,9 @@ exports.getFoodByFeature = catchAsync(async (req, res, next) => {
     data: food,
   });
 });
-exports.createFood = catchAsync(async (req, res, next) => {
-  const newTour = await Food.create(req.body);
-  if (!newTour)
-    return next(new AppError("Couldn't create food please try again", 400));
-  res.status(200).json({
-    status: "success",
-    data: {
-      tour: newTour,
-    },
-  });
-});
+//factory handler
+exports.createFood = factory.createOne(Food);
+
 exports.updateFood = catchAsync(async (req, res, next) => {
   const updatedFood = await Food.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
