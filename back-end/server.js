@@ -1,5 +1,5 @@
 process.on("uncaughtException", (err) => {
-  console.log(err.name + " **** " + err.message);
+  console.log("uncaughtException🤪\n" + err.name + "\n💎\n" + err.message);
   process.exit(1);
 });
 

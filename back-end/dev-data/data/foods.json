@@ -1,0 +1,55 @@
+[
+  {
+    "name": "keledos",
+    "price": 25,
+    "imageCover": "img/food",
+    "ingredients": ["Yag", "Tavuk Eti", "Lavas", "Acı biber", "Turşu"],
+    "foodType": "food"
+  },
+  {
+    "name": "tırsik",
+    "price": 15,
+    "ingredients": ["e", "f", "g", "x"],
+    "imageCover": "img/Cover",
+    "foodType": "food"
+  },
+  {
+    "name": "pizza",
+    "price": 34,
+    "imageCover": "img/food",
+    "ingredients": ["Yag", "Köfte", "Lavas", "mantar", "havuc"],
+    "foodType": "food"
+  },
+  {
+    "name": "Mantar çorbası",
+    "price": 85,
+    "imageCover": "img/food",
+    "ingredients": ["Yag", "Mantar", "Patlican", "Acı biber", "Ketcup"],
+    "foodType": "food",
+    "priceDiscount": 35
+  },
+  {
+    "name": "Kola",
+    "price": 12,
+    "imageCover": "img/food",
+    "ingredients": ["Asit", "Şeker", "TNT"],
+    "foodType": "beverage",
+    "priceDiscount": 2
+  },
+  {
+    "name": "Su",
+    "price": 12,
+    "imageCover": "img/food",
+    "ingredients": ["H2", "O"],
+    "foodType": "beverage",
+    "priceDiscount": 2
+  },
+  {
+    "name": "Ayran",
+    "price": 4,
+    "imageCover": "img/food",
+    "ingredients": ["Yogurt", "Su", "Tuz"],
+    "foodType": "beverage",
+    "priceDiscount": 3
+  }
+]

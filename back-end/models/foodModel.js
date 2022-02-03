@@ -6,21 +6,29 @@ const foodSchema = new mongoose.Schema(
     name: {
       type: String,
       required: [true, "A food must have  name"],
-      unique: true,
       trim: true,
-      maxlength: [25, "A food name must be less than 25 characters"],
-      minlength: [5, "A food name must be greather than 5 characters"],
     },
     price: {
       type: Number,
       required: [true, "A food must have a price"],
+      min: [0, "A food price must be greather than zero"],
     },
-    ingridents: {
+    ingredients: {
       type: [String],
-      required: [true, "A food must have ingridents"],
+      required: [true, "A food must have ingredients"],
+    },
+
+    foodType: {
+      type: String,
+      required: [true, "A food must have type"],
+      enum: {
+        values: ["beverage", "food", "dessert"],
+        message: "Invalid food type. valid types: beverage,food,dessert",
+      },
     },
     priceDiscount: {
       type: Number,
+      default: 0,
       validate: {
         validator: function (value) {
           return value < this.price;
@@ -45,7 +53,7 @@ const foodSchema = new mongoose.Schema(
 );
 //hooks: virtual,pre,post
 foodSchema.pre("save", function (next) {
-  this.ingridents.map((el) => el.toLowerCase());
+  this.ingredients.map((el) => el.toLowerCase());
   next();
 });
 
