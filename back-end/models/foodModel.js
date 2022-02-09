@@ -51,6 +51,7 @@ const foodSchema = new mongoose.Schema(
     toObject: { virtuals: true },
   }
 );
+
 //hooks: virtual,pre,post
 foodSchema.pre("save", function (next) {
   this.ingredients.map((el) => el.toLowerCase());

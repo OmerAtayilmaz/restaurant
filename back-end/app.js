@@ -5,6 +5,7 @@ const globalErrorHandler = require("./controllers/errorController");
 const globalErrorHandler = require("./controllers/errorController"); */
 const foodRouter = require("./routes/foodRoutes");
 const userRouter = require("./routes/userRoutes");
+const orderRouter = require("./routes/orderRoutes");
 
 const app = express();
 app.use(express.json()); //req.body çalışmaz undefined döner!
@@ -24,11 +25,13 @@ app.use(function (req, res, next) {
   // to the API (e.g. in case you use sessions)
   res.setHeader("Access-Control-Allow-Credentials", true);
 
-  // Pass to next layer of middleware
+  // Pass to next layer of middleware app.use(globalErrorHandler);
+
   next();
 });
 app.use("/api/food", foodRouter);
 app.use("/api/user", userRouter);
+app.use("/api/order", orderRouter);
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));

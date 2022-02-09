@@ -6,8 +6,10 @@ class APIFeatures {
 
   filter() {
     const queryObj = { ...this.queryString };
+    //url'de olup veritabanından aranmayacak keywordleri url'den çıkarıp filtreledik.
     const excludedFields = ["page", "sort", "limit", "fields"];
     excludedFields.forEach((el) => delete queryObj[el]);
+    console.log(queryObj);
     let queryStr = JSON.stringify(queryObj);
     queryStr = queryStr.replace(/\b(gt|gte|lt|lte)\b/g, (match) => `$${match}`);
     this.query = this.query.find(JSON.parse(queryStr));
@@ -18,7 +20,7 @@ class APIFeatures {
       const sortBy = this.queryString.sort.split(",").join(" ");
       this.query = this.query.sort(sortBy);
     } else {
-      this.query = this.query.sort("-createdAt");
+      this.query = this.query.sort("-price");
     }
     return this;
   }
