@@ -65,7 +65,6 @@ exports.getAll = (Model) =>
 
     //const doc = await features.query.explain(); use this for indexing
     const doc = await features.query;
-
     //send response
     res.status(200).json({
       status: "success",
@@ -75,3 +74,17 @@ exports.getAll = (Model) =>
       },
     });
   });
+
+exports.returnAllData = (Model,query) =>{
+  return new Promise(async(resolve,reject)=> {
+    const features = new APIFeatures(Model.find(), query)
+    .filter()
+    .sort()
+    .limitFields()
+    .paginate();
+  //execute query;
+  //const doc = await features.query.explain(); use this for indexing
+    const doc = await features.query;
+    resolve(doc);
+  })
+};

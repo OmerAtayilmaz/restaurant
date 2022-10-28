@@ -1,0 +1,65 @@
+
+
+#product-carousel .card{
+    background:rgba(0, 0, 0, 0.04) !important;
+    border:none;
+}
+#product-carousel {
+    margin:0 !important;
+    padding:0 !important;
+}
+@media (max-width:991.98px) {
+    .padding {
+        padding: 1.5rem
+    }
+}
+
+@media (max-width:767.98px) {
+    .padding {
+        padding: 1rem
+    }
+}
+
+
+
+
+
+.owl-carousel .item img {
+    display: block;
+    width: 100%;
+    height: auto
+}
+
+.owl-carousel .item {
+    margin: 3px
+}
+
+.owl-carousel {
+    margin-bottom: 15px
+}
+
+
+.fa-chevron-right{
+    position: absolute;
+    z-index: 1000;
+    top: 35%;
+    right: 0;
+    color: white;
+    font-size:2rem;
+    padding:1rem;
+    background:orange;
+}
+.fa-chevron-left{
+    position: absolute;
+    z-index: 1000;
+    top: 35%;
+    left: 0;
+    color: white;
+    background:orange;
+    font-size:2rem;
+    padding:1rem;
+}
+.fa-chevron-left:hover,.fa-chevron-right:hover{
+    transition:0.3s ease-in-out;
+    background:rgb(192, 125, 2);
+}

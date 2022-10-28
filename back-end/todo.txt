@@ -1,5 +1,24 @@
-1-Seperate API into logical resourcest
-2-Expose structured resource - based on URLs
-3-use HTTP methods: get,post,put,patch,delete
-4-send data as JSON 
-5-be stateless - as RESTful API -
+[]-< USER verileri silinmez,status:false yapılır
+[]-< IMAGE Gallery belirle
+[]-< Slider Imageleri Admin Panelden Belirlenecek
+[]-< Burgers,beverages,pizzas vs. tıklanınca categorye göre arama yapacak
+[]-< Menü Admin Panel Baglanıp dinamil hale getirilecek
+[]-< Rich Text Editor Kullanılacak
+
+
+            ->USER<-
+[]-< Reviewlerini Düzenleyebilecek
+[]-< Satın Alma geçmişini görür
+[]-< Şifre değiştirir
+[]-< PP değiştirir
+[]-< Profile bilgilerini değiştirir
+[]-< Sipariş Verme (sadece login yapanlar sipariş verebilir)
+
+            ->ADMİN<-
+[]-< USER-CRUD
+[]-< ORDER-CRUD
+[]-< BOOKING-CRUD
+[]-< FOOD-CRUD
+[]-< SETTINGS-CRUD
+[]-< SOCIAL MEDIA-CRUD
+[]-< SOCIAL MEDIA-CRUD

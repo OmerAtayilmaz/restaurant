@@ -18,9 +18,9 @@ const createSendToken = (user, statusCode, res) => {
     ),
     httpOnly: true,
   };
-  if (process.env.NODE_ENV === "production") {
+ /*  if (process.env.NODE_ENV === "production") {
     cookieOptions.secure = true;
-  }
+  } */
   res.cookie("jwt", token, cookieOptions);
   user.password = undefined;
   res.status(statusCode).json({
@@ -38,7 +38,7 @@ exports.signup = catchAsync(async (req, res, next) => {
     password: req.body.password,
     passwordConfirm: req.body.passwordConfirm,
     passwordChangedAt: req.body.passwordChangedAt,
-    role: req.body.role,
+    role: "user",
   });
   createSendToken(newUser, 201, res);
 });
@@ -60,8 +60,11 @@ exports.protect = catchAsync(async (req, res, next) => {
   if (
     req.headers.authorization &&
     req.headers.authorization.startsWith("Bearer")
-  ) {
+  ){
     token = req.headers.authorization.split(" ")[1];
+
+  }else if(req.cookies.jwt) {
+    token = req.cookies.jwt;
   }
   if (!token) {
     return next(
@@ -86,8 +89,16 @@ exports.protect = catchAsync(async (req, res, next) => {
   }
   //GRANT ACCESS TO PROTECTED ROUTE
   req.user = currentUser;
+  
   next();
 });
+exports.logout = (req, res) => {
+  res.cookie("jwt", "loggedout", {
+    expires: new Date(Date.now()),
+    httpOnly: true,
+  });
+  res.status(200).json({ status: "success" });
+};
 exports.restrictTo = (...roles) => {
   return (req, res, next) => {
     if (!roles.includes(req.user.role)) {
@@ -97,6 +108,37 @@ exports.restrictTo = (...roles) => {
     }
     next();
   };
+};
+//Only for rendered pages, no errors!
+exports.isLoggedIn = async (req, res, next) => {
+  // 1) Getting token and checking if it's exist
+  if (req.cookies?.jwt) {
+    try {
+      // 2) Verification token
+      //promisify kullanımı! çok önemli!
+      const decoded = await promisify(jwt.verify)(
+        req.cookies.jwt,
+        process.env.JWT_SECRET
+      );
+      // 3) Check if user still exist
+      const currentUser = await User.findById(decoded.id);
+      if (!currentUser) {
+        next();
+      }
+      // 4) Check if user change password after the JWT was issued
+      if (currentUser.changesPasswordAfter(decoded.iat)) {
+        return next();
+      }
+      //THERE IS A LOGGED IN USER
+      res.locals.user = currentUser;
+      return next();
+    } catch (err) {
+      return next();
+    }
+  } else {
+    res.locals.user = undefined;
+  }
+  next();
 };
 exports.forgotPassword = catchAsync(async (req, res, next) => {
   // 1) Get user based on POSTed email

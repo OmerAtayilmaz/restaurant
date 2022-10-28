@@ -22,7 +22,7 @@ const foodSchema = new mongoose.Schema(
       type: String,
       required: [true, "A food must have type"],
       enum: {
-        values: ["beverage", "food", "dessert"],
+        values: ["beverage", "food", "dessert","snack"],
         message: "Invalid food type. valid types: beverage,food,dessert",
       },
     },

@@ -1,0 +1,21 @@
+
+<%- include('./../layouts/_head') %>
+  <body>
+      <!--NAVBAR START-->
+    <%- include('./../layouts/_navbar') %>
+    <%- include('./../layouts/_carousel') %>
+    <%- include('./../layouts/_new-products') %>
+    <%- include('./../layouts/_product-carousel',{title:'Beverages.',products:beverages}) %>
+    <%- include('./../layouts/_product-carousel',{title:'Desserts.',products:desserts}) %>
+    <%- include('./../layouts/_features') %>
+    <%- include('./../layouts/_food') %>
+    <%- include('./../layouts/_menu') %>
+    <%- include('./../layouts/_testimonials') %>
+    <%- include('./../layouts/_footer') %>
+    <!-- back to up -->
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+    <!--navbar end-->
+    <%- include('./../layouts/_scripts') %>
+  </body>
+</html>

@@ -6,7 +6,7 @@ const orderModel = new mongoose.Schema({
   createAt: {
     type: Date,
     default: Date.now(),
-    select: false,
+    required:true
   },
   orders: [
     {
